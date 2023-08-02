@@ -25,19 +25,53 @@ function getPlayerChoice() {
 // function to play round of game checking players selections
 
 function checkWinnerOfGame(comp, player) {
+  let winner;
   if (comp === "rock" && player === "scissors") {
-    return "You lose! Rock beats Scissors";
+    console.log("You lose! Rock beats Scissors");
+    return (winner = "comp");
   } else if (comp === "rock" && player === "paper") {
-    return "You Win! Scissors beats Paper";
+    console.log("You Win! Scissors beats Paper");
+    return (winner = "player");
   } else if (comp === "scissors" && player === "rock") {
-    return "You Win! Rock beats Scissors";
+    console.log("You Win! Rock beats Scissors");
+    return (winner = "player");
   } else if (comp === "scissors" && player === "paper") {
-    return "You Loose! Scissors beats Paper";
+    console.log("You Loose! Scissors beats Paper");
+    return (winner = "comp");
   } else if (comp === "paper" && player === "rock") {
-    return "You Loose! Paper beats Rock";
+    console.log("You Loose! Paper beats Rock");
+    return (winner = "comp");
   } else if (comp === "paper" && player === "scissors") {
-    return "You Win! Scissors beats Paper";
+    console.log("You Win! Scissors beats Paper");
+    return (winner = "player");
   } else {
-    return "draw";
+    console.log("draw");
+    return (winner = "");
   }
+}
+
+// create function that plays 5 rounds(loops)and reports winner at the end.
+
+function game() {
+  let playerSelection;
+  let computerSelection;
+  let winner;
+  let compScore = 0;
+  let playerScore = 0;
+
+  for (let i = 0; i < 5; i++) {
+    playerSelection = getPlayerChoice();
+    computerSelection = getComputerChoice();
+    winner = checkWinnerOfGame(computerSelection, playerSelection);
+    if (winner === "comp") {
+      compScore++;
+    } else if (winner === "player") {
+      playerScore++;
+    }
+  }
+  return compScore === playerScore
+    ? `Draw ${playerScore}:${compScore}`
+    : compScore > playerScore
+    ? `You loose ${playerScore}:${compScore}`
+    : `You win ${playerScore}:${compScore}`;
 }
