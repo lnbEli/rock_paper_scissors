@@ -21,6 +21,9 @@ function getComputerChoice() {
 
 function getPlayerChoice() {
   let playerSelection = this.dataset.name;
+
+  console.log(playerSelection);
+
   return checkWinnerOfGame(playerSelection);
 }
 
