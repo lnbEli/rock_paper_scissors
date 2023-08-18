@@ -1,3 +1,15 @@
+//DOM
+
+const options = document.querySelectorAll(".btn");
+
+// function logText(e) {
+//   console.log(this.dataset.name);
+// }
+
+options.forEach((el) => {
+  el.addEventListener("click", getPlayerChoice);
+});
+
 // create function with array of choices that than can pick one at random
 
 function getComputerChoice() {
@@ -8,24 +20,29 @@ function getComputerChoice() {
 //create function to select option, checks spelling and makes text case-insensitive.
 
 function getPlayerChoice() {
-  let playerSelection = prompt("Rock, Paper or Scissors?").toLowerCase();
+  let playerSelection = this.dataset.name;
 
-  while (
-    playerSelection !== "rock" &&
-    playerSelection !== "paper" &&
-    playerSelection !== "scissors"
-  ) {
-    playerSelection = prompt(
-      "Please check spelling. Rock, Paper or Scissors?"
-    ).toLowerCase();
-  }
-  return playerSelection;
+  console.log(playerSelection);
+
+  //prompt("Rock, Paper or Scissors?").toLowerCase();
+
+  // while (
+  //   playerSelection !== "rock" &&
+  //   playerSelection !== "paper" &&
+  //   playerSelection !== "scissors"
+  // ) {
+  //   playerSelection = prompt(
+  //     "Please check spelling. Rock, Paper or Scissors?"
+  //   ).toLowerCase();
+  // }
+  return checkWinnerOfGame(playerSelection);
 }
 
 // function to play round of game checking players selections
+//comp, player
 
-function checkWinnerOfGame(comp, player) {
-  let winner;
+function checkWinnerOfGame(player) {
+  let comp = getComputerChoice();
   if (comp === "rock" && player === "scissors") {
     console.log("You lose! Rock beats Scissors");
     return (winner = "comp");
@@ -52,26 +69,26 @@ function checkWinnerOfGame(comp, player) {
 
 // create function that plays 5 rounds(loops)and reports winner at the end.
 
-function game() {
-  let playerSelection;
-  let computerSelection;
-  let winner;
-  let compScore = 0;
-  let playerScore = 0;
+// function game() {
+//   let playerSelection;
+//   let computerSelection;
+//   let winner;
+//   let compScore = 0;
+//   let playerScore = 0;
 
-  for (let i = 0; i < 5; i++) {
-    playerSelection = getPlayerChoice();
-    computerSelection = getComputerChoice();
-    winner = checkWinnerOfGame(computerSelection, playerSelection);
-    if (winner === "comp") {
-      compScore++;
-    } else if (winner === "player") {
-      playerScore++;
-    }
-  }
-  return compScore === playerScore
-    ? `Draw ${playerScore}:${compScore}`
-    : compScore > playerScore
-    ? `You loose ${playerScore}:${compScore}`
-    : `You win ${playerScore}:${compScore}`;
-}
+//   for (let i = 0; i < 5; i++) {
+//     playerSelection = getPlayerChoice();
+//     computerSelection = getComputerChoice();
+//     winner = checkWinnerOfGame(computerSelection, playerSelection);
+//     if (winner === "comp") {
+//       compScore++;
+//     } else if (winner === "player") {
+//       playerScore++;
+//     }
+//   }
+//   return compScore === playerScore
+//     ? `Draw ${playerScore}:${compScore}`
+//     : compScore > playerScore
+//     ? `You loose ${playerScore}:${compScore}`
+//     : `You win ${playerScore}:${compScore}`;
+// }

@@ -1,0 +1,19 @@
+.section1 {
+  height: 400px;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section2 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* border: 2px solid black; */
+  padding: 40px;
+}
+
+button {
+  height: 40px;
+}
