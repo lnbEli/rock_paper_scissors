@@ -24,17 +24,6 @@ function getPlayerChoice() {
 
   console.log(playerSelection);
 
-  //prompt("Rock, Paper or Scissors?").toLowerCase();
-
-  // while (
-  //   playerSelection !== "rock" &&
-  //   playerSelection !== "paper" &&
-  //   playerSelection !== "scissors"
-  // ) {
-  //   playerSelection = prompt(
-  //     "Please check spelling. Rock, Paper or Scissors?"
-  //   ).toLowerCase();
-  // }
   return checkWinnerOfGame(playerSelection);
 }
 
