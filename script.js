@@ -21,9 +21,6 @@ function getComputerChoice() {
 
 function getPlayerChoice() {
   let playerSelection = this.dataset.name;
-
-  console.log(playerSelection);
-
   return checkWinnerOfGame(playerSelection);
 }
 
@@ -32,6 +29,10 @@ function getPlayerChoice() {
 
 function checkWinnerOfGame(player) {
   gamesPlayed++;
+<<<<<<< HEAD
+=======
+  console.log(gamesPlayed);
+>>>>>>> 4d1d61b (add modal popup when)
 
   let comp = getComputerChoice();
 
@@ -40,36 +41,64 @@ function checkWinnerOfGame(player) {
     compChoice.textContent = comp;
     compScore++;
     compScoreHTML.textContent = compScore;
+<<<<<<< HEAD
+=======
+    //return (winner.textContent = "comp");
+>>>>>>> 4d1d61b (add modal popup when)
   } else if (comp === "rock" && player === "paper") {
     winner.textContent = "You Win! Paper beats rock";
     compChoice.textContent = comp;
     playerScore++;
     playerScoreHTML.textContent = playerScore;
+<<<<<<< HEAD
+=======
+    //return (winner.textContent = "player");
+>>>>>>> 4d1d61b (add modal popup when)
   } else if (comp === "scissors" && player === "rock") {
     winner.textContent = "You Win! Rock beats Scissors";
     compChoice.textContent = comp;
     playerScore++;
     playerScoreHTML.textContent = playerScore;
+<<<<<<< HEAD
+=======
+    //return (winner.textContent = "player");
+>>>>>>> 4d1d61b (add modal popup when)
   } else if (comp === "scissors" && player === "paper") {
     winner.textContent = "You Loose! Scissors beats Paper";
     compChoice.textContent = comp;
     compScore++;
     compScoreHTML.textContent = compScore;
+<<<<<<< HEAD
+=======
+    //return (winner.textContent = "comp");
+>>>>>>> 4d1d61b (add modal popup when)
   } else if (comp === "paper" && player === "rock") {
     winner.textContent = "You Loose! Paper beats Rock";
     compChoice.textContent = comp;
     compScore++;
     compScoreHTML.textContent = compScore;
+<<<<<<< HEAD
+=======
+    //return (winner.textContent = "comp");
+>>>>>>> 4d1d61b (add modal popup when)
   } else if (comp === "paper" && player === "scissors") {
     winner.textContent = "You Win! Scissors beats Paper";
     compChoice.textContent = comp;
     playerScore++;
     playerScoreHTML.textContent = playerScore;
+<<<<<<< HEAD
+=======
+    //return (winner.textContent = "player");
+>>>>>>> 4d1d61b (add modal popup when)
   } else {
     winner.textContent = "draw";
     compChoice.textContent = comp;
     compScoreHTML.textContent = compScore;
     playerScoreHTML.textContent = playerScore;
+<<<<<<< HEAD
+=======
+    //return (winner.textContent = "");
+>>>>>>> 4d1d61b (add modal popup when)
   }
   keepScores();
 }
@@ -97,16 +126,30 @@ function keepScores() {
 
 //Add modal window that pops up when match won
 
+<<<<<<< HEAD
 const modal = document.querySelector(".modal");
 const span = document.querySelector(".close");
+=======
+const modal = document.getElementById("myModal");
+const span = document.getElementsByClassName("close")[0];
+>>>>>>> 4d1d61b (add modal popup when)
 
 function openModal() {
   modal.style.display = "block";
 }
 
+<<<<<<< HEAD
 span.addEventListener("click", resetGame);
 
 //add function that closes modal window and resets game
+=======
+span.onclick = function () {
+  resetGame();
+  modal.style.display = "none";
+};
+
+//add function that resets game
+>>>>>>> 4d1d61b (add modal popup when)
 
 function resetGame() {
   compScore = 0;
@@ -116,5 +159,8 @@ function resetGame() {
   winner.textContent = "????";
   compScoreHTML.textContent = compScore;
   playerScoreHTML.textContent = playerScore;
+<<<<<<< HEAD
   modal.style.display = "none";
+=======
+>>>>>>> 4d1d61b (add modal popup when)
 }
