@@ -1,14 +1,14 @@
 //DOM
 
 const options = document.querySelectorAll(".btn");
-
-// function logText(e) {
-//   console.log(this.dataset.name);
-// }
-
-options.forEach((el) => {
-  el.addEventListener("click", getPlayerChoice);
+const compChoice = document.querySelector(".comp-choice");
+options.forEach((btn) => {
+  btn.addEventListener("click", getPlayerChoice);
 });
+const compScoreHTML = document.querySelector(".computer-score");
+const playerScoreHTML = document.querySelector(".player-score");
+const winner = document.querySelector(".results");
+const gameOver = document.querySelector(".game-over");
 
 // create function with array of choices that than can pick one at random
 
@@ -17,13 +17,10 @@ function getComputerChoice() {
   return choices[Math.floor(Math.random() * 3)];
 }
 
-//create function to select option, checks spelling and makes text case-insensitive.
+//create function to select option, checks spelling and makes text case-insensitive.No longer need to check speeling as using buttons.
 
 function getPlayerChoice() {
   let playerSelection = this.dataset.name;
-
-  console.log(playerSelection);
-
   return checkWinnerOfGame(playerSelection);
 }
 
@@ -31,53 +28,100 @@ function getPlayerChoice() {
 //comp, player
 
 function checkWinnerOfGame(player) {
+  gamesPlayed++;
+  console.log(gamesPlayed);
+
   let comp = getComputerChoice();
+
   if (comp === "rock" && player === "scissors") {
-    console.log("You lose! Rock beats Scissors");
-    return (winner = "comp");
+    winner.textContent = "You lose! Rock beats Scissors";
+    compChoice.textContent = comp;
+    compScore++;
+    compScoreHTML.textContent = compScore;
+    //return (winner.textContent = "comp");
   } else if (comp === "rock" && player === "paper") {
-    console.log("You Win! Scissors beats Paper");
-    return (winner = "player");
+    winner.textContent = "You Win! Paper beats rock";
+    compChoice.textContent = comp;
+    playerScore++;
+    playerScoreHTML.textContent = playerScore;
+    //return (winner.textContent = "player");
   } else if (comp === "scissors" && player === "rock") {
-    console.log("You Win! Rock beats Scissors");
-    return (winner = "player");
+    winner.textContent = "You Win! Rock beats Scissors";
+    compChoice.textContent = comp;
+    playerScore++;
+    playerScoreHTML.textContent = playerScore;
+    //return (winner.textContent = "player");
   } else if (comp === "scissors" && player === "paper") {
-    console.log("You Loose! Scissors beats Paper");
-    return (winner = "comp");
+    winner.textContent = "You Loose! Scissors beats Paper";
+    compChoice.textContent = comp;
+    compScore++;
+    compScoreHTML.textContent = compScore;
+    //return (winner.textContent = "comp");
   } else if (comp === "paper" && player === "rock") {
-    console.log("You Loose! Paper beats Rock");
-    return (winner = "comp");
+    winner.textContent = "You Loose! Paper beats Rock";
+    compChoice.textContent = comp;
+    compScore++;
+    compScoreHTML.textContent = compScore;
+    //return (winner.textContent = "comp");
   } else if (comp === "paper" && player === "scissors") {
-    console.log("You Win! Scissors beats Paper");
-    return (winner = "player");
+    winner.textContent = "You Win! Scissors beats Paper";
+    compChoice.textContent = comp;
+    playerScore++;
+    playerScoreHTML.textContent = playerScore;
+    //return (winner.textContent = "player");
   } else {
-    console.log("draw");
-    return (winner = "");
+    winner.textContent = "draw";
+    compChoice.textContent = comp;
+    compScoreHTML.textContent = compScore;
+    playerScoreHTML.textContent = playerScore;
+    //return (winner.textContent = "");
+  }
+  keepScores();
+}
+
+//create function that plays 5 rounds(loops)and reports winner at the end.
+
+let compScore = 0;
+let playerScore = 0;
+let gamesPlayed = 0;
+
+function keepScores() {
+  if (gamesPlayed === 5 && compScore === playerScore) {
+    gameOver.textContent = `Draw ${playerScore}:${compScore}`;
+    openModal();
+  } else if (gamesPlayed === 5 && compScore > playerScore) {
+    gameOver.textContent = `You loose ${playerScore}:${compScore}`;
+    openModal();
+  } else if (gamesPlayed === 5 && compScore < playerScore) {
+    gameOver.textContent = `You win ${playerScore}:${compScore}`;
+    openModal();
+  } else {
+    return;
   }
 }
 
-// create function that plays 5 rounds(loops)and reports winner at the end.
+//Add modal window that pops up when match won
 
-// function game() {
-//   let playerSelection;
-//   let computerSelection;
-//   let winner;
-//   let compScore = 0;
-//   let playerScore = 0;
+const modal = document.getElementById("myModal");
+const span = document.getElementsByClassName("close")[0];
 
-//   for (let i = 0; i < 5; i++) {
-//     playerSelection = getPlayerChoice();
-//     computerSelection = getComputerChoice();
-//     winner = checkWinnerOfGame(computerSelection, playerSelection);
-//     if (winner === "comp") {
-//       compScore++;
-//     } else if (winner === "player") {
-//       playerScore++;
-//     }
-//   }
-//   return compScore === playerScore
-//     ? `Draw ${playerScore}:${compScore}`
-//     : compScore > playerScore
-//     ? `You loose ${playerScore}:${compScore}`
-//     : `You win ${playerScore}:${compScore}`;
-// }
+function openModal() {
+  modal.style.display = "block";
+}
+
+span.onclick = function () {
+  resetGame();
+  modal.style.display = "none";
+};
+
+//add function that resets game
+
+function resetGame() {
+  compScore = 0;
+  playerScore = 0;
+  gamesPlayed = 0;
+  compChoice.textContent = "????";
+  winner.textContent = "????";
+  compScoreHTML.textContent = compScore;
+  playerScoreHTML.textContent = playerScore;
+}
