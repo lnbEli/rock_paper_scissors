@@ -29,7 +29,6 @@ function getPlayerChoice() {
 
 function checkWinnerOfGame(player) {
   gamesPlayed++;
-  console.log(gamesPlayed);
 
   let comp = getComputerChoice();
 
@@ -38,43 +37,36 @@ function checkWinnerOfGame(player) {
     compChoice.textContent = comp;
     compScore++;
     compScoreHTML.textContent = compScore;
-    //return (winner.textContent = "comp");
   } else if (comp === "rock" && player === "paper") {
     winner.textContent = "You Win! Paper beats rock";
     compChoice.textContent = comp;
     playerScore++;
     playerScoreHTML.textContent = playerScore;
-    //return (winner.textContent = "player");
   } else if (comp === "scissors" && player === "rock") {
     winner.textContent = "You Win! Rock beats Scissors";
     compChoice.textContent = comp;
     playerScore++;
     playerScoreHTML.textContent = playerScore;
-    //return (winner.textContent = "player");
   } else if (comp === "scissors" && player === "paper") {
     winner.textContent = "You Loose! Scissors beats Paper";
     compChoice.textContent = comp;
     compScore++;
     compScoreHTML.textContent = compScore;
-    //return (winner.textContent = "comp");
   } else if (comp === "paper" && player === "rock") {
     winner.textContent = "You Loose! Paper beats Rock";
     compChoice.textContent = comp;
     compScore++;
     compScoreHTML.textContent = compScore;
-    //return (winner.textContent = "comp");
   } else if (comp === "paper" && player === "scissors") {
     winner.textContent = "You Win! Scissors beats Paper";
     compChoice.textContent = comp;
     playerScore++;
     playerScoreHTML.textContent = playerScore;
-    //return (winner.textContent = "player");
   } else {
     winner.textContent = "draw";
     compChoice.textContent = comp;
     compScoreHTML.textContent = compScore;
     playerScoreHTML.textContent = playerScore;
-    //return (winner.textContent = "");
   }
   keepScores();
 }
@@ -102,19 +94,16 @@ function keepScores() {
 
 //Add modal window that pops up when match won
 
-const modal = document.getElementById("myModal");
-const span = document.getElementsByClassName("close")[0];
+const modal = document.querySelector(".modal");
+const span = document.querySelector(".close");
 
 function openModal() {
   modal.style.display = "block";
 }
 
-span.onclick = function () {
-  resetGame();
-  modal.style.display = "none";
-};
+span.addEventListener("click", resetGame);
 
-//add function that resets game
+//add function that closes modal window and resets game
 
 function resetGame() {
   compScore = 0;
@@ -124,4 +113,5 @@ function resetGame() {
   winner.textContent = "????";
   compScoreHTML.textContent = compScore;
   playerScoreHTML.textContent = playerScore;
+  modal.style.display = "none";
 }
