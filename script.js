@@ -29,9 +29,6 @@ function getPlayerChoice() {
 
 function checkWinnerOfGame(player) {
   gamesPlayed++;
-<<<<<<< HEAD
-=======
->>>>>>> 4d1d61b (add modal popup when)
 
   let comp = getComputerChoice();
 
@@ -40,34 +37,21 @@ function checkWinnerOfGame(player) {
     compChoice.textContent = comp;
     compScore++;
     compScoreHTML.textContent = compScore;
-<<<<<<< HEAD
-=======
-    //return (winner.textContent = "comp");
->>>>>>> 4d1d61b (add modal popup when)
   } else if (comp === "rock" && player === "paper") {
     winner.textContent = "You Win! Paper beats rock";
     compChoice.textContent = comp;
     playerScore++;
     playerScoreHTML.textContent = playerScore;
-<<<<<<< HEAD
-=======
->>>>>>> 4d1d61b (add modal popup when)
   } else if (comp === "scissors" && player === "rock") {
     winner.textContent = "You Win! Rock beats Scissors";
     compChoice.textContent = comp;
     playerScore++;
     playerScoreHTML.textContent = playerScore;
-<<<<<<< HEAD
-=======
->>>>>>> 4d1d61b (add modal popup when)
   } else if (comp === "scissors" && player === "paper") {
     winner.textContent = "You Loose! Scissors beats Paper";
     compChoice.textContent = comp;
     compScore++;
     compScoreHTML.textContent = compScore;
-<<<<<<< HEAD
-=======
->>>>>>> 4d1d61b (add modal popup when)
   } else if (comp === "paper" && player === "rock") {
     winner.textContent = "You Loose! Paper beats Rock";
     compChoice.textContent = comp;
