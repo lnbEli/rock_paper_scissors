@@ -94,14 +94,14 @@ function keepScores() {
 
 //Add modal window that pops up when match won
 
-const modal = document.getElementById("myModal");
-const span = document.getElementsByClassName("close")[0];
+const modal = document.querySelector(".modal");
+const close = document.querySelector(".close");
 
 function openModal() {
   modal.style.display = "block";
 }
 
-span.addEventListener("click", resetGame);
+close.addEventListener("click", resetGame);
 
 //add function that closes modal window and resets game
 
@@ -113,4 +113,5 @@ function resetGame() {
   winner.textContent = "????";
   compScoreHTML.textContent = compScore;
   playerScoreHTML.textContent = playerScore;
+  modal.style.display = "none";
 }

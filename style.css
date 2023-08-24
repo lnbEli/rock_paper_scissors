@@ -62,17 +62,6 @@ header {
   height: 30%;
 }
 
-.modal-content {
-  display: flex;
-  flex-direction: column;
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888888;
-  width: 60%;
-  height: 30%;
-}
-
 .close {
   color: #aaa;
   font-size: 28px;
@@ -84,22 +73,7 @@ header {
 .close:focus {
   color: black;
   cursor: pointer;
-}
-
-.modal-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex: 1;
-}
-
-.game-over {
-  align-self: center;
-}
-
-.close {
   text-decoration: none;
-  cursor: pointer;
 }
 
 .modal-body {
