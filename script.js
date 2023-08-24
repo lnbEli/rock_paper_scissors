@@ -57,7 +57,6 @@ function checkWinnerOfGame(player) {
     compChoice.textContent = comp;
     compScore++;
     compScoreHTML.textContent = compScore;
-    //return (winner.textContent = "comp");
   } else if (comp === "paper" && player === "scissors") {
     winner.textContent = "You Win! Scissors beats Paper";
     compChoice.textContent = comp;
